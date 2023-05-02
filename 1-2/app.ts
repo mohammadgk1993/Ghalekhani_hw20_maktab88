@@ -124,6 +124,8 @@ $(() => {
     $("#delete-user").on("submit", deleteUser)
 
     $("#delete-all").on("click", deleteAllUsers)
+
+    $("#read-user-button").on("click", readUser)
 })
 
 
@@ -188,4 +190,16 @@ function deleteUser() {
 function deleteAllUsers() {
     reqresUsers.deleteAllUser()
     tableRenderer()
+}
+
+function readUser() {
+    const user:object = Object(reqresUsers.getSingleUser(Number($("#read-user-id").val())))
+    console.log(user)
+    
+    $("table tbody").empty()
+
+    $("table tbody").append("<tr></tr>")
+        for (let val of Object.values(user)) {
+            $("table tbody tr:last").append(`<td>${val}</td>`)
+    }
 }

@@ -97,8 +97,8 @@ $(function () {
     $('tr').on("click", userInfo);
     $("#update-user").on("submit", updateUser);
     $("#delete-user").on("submit", deleteUser);
-    // $("#search-button").on("click", search)
     $("#delete-all").on("click", deleteAllUsers);
+    $("#read-user-button").on("click", readUser);
 });
 function tableRenderer() {
     $("table thead").empty();
@@ -123,9 +123,9 @@ function userInfo() {
     var id = $(this).attr('id');
     var user = reqresUsers.getSingleUser(Number(id));
     $("#update-user-id").val(String(id));
-    $("#update-user-firstname").val(user.firstName);
-    $("#update-user-lastname").val(user.lastName);
-    $("#update-user-email").val(user.email);
+    $("#update-user-firstname").val(Object(user).firstName);
+    $("#update-user-lastname").val(Object(user).lastName);
+    $("#update-user-email").val(Object(user).email);
 }
 function addUser() {
     var _a, _b, _c, _d, _e, _f, _g;
@@ -150,4 +150,14 @@ function deleteUser() {
 function deleteAllUsers() {
     reqresUsers.deleteAllUser();
     tableRenderer();
+}
+function readUser() {
+    var user = Object(reqresUsers.getSingleUser(Number($("#read-user-id").val())));
+    console.log(user);
+    $("table tbody").empty();
+    $("table tbody").append("<tr></tr>");
+    for (var _i = 0, _a = Object.values(user); _i < _a.length; _i++) {
+        var val = _a[_i];
+        $("table tbody tr:last").append("<td>".concat(val, "</td>"));
+    }
 }
