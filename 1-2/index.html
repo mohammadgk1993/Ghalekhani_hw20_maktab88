@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <firstname>User List App</firstname>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <div id="menu-bar">
+            <button id="delete-all">Delete All users</button>
+        </div>
+
+        <table>
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+
+        <div id="crud">
+            <form id="add-user">
+                <caption>add new user</caption>
+                <label for="user-firstname">firstname</label>
+                <input id="user-firstname" type="text">
+                <label for="user-lastname">lastname</label>
+                <input id="user-lastname" type="text">
+                <label for="user-email">email</label>
+                <input id="user-email" type="text">
+                <label for="user-id">id</label>
+                <input id="user-id" type="text">
+                <button type="submit">Add user</button>
+            </form>
+
+            <form id="update-user">
+                <caption>update user</caption>
+                <label for="update-user-firstname" for="">firstname</label>
+                <input id="update-user-firstname" type="text">
+                <label for="update-user-lastname" for="">lastname</label>
+                <input id="update-user-lastname" type="text">
+                <label for="update-user-email" for="">email</label>
+                <input id="update-user-email" type="text">
+                <label for="update-user-id">id</label>
+                <input id="update-user-id" type="text" disabled>
+                <button type="submit">Update user</button>
+            </form>
+
+            <form id="delete-user">
+                <caption>delete user id</caption>
+                <label for="delete-user-id">id</label>
+                <input id="delete-user-id" type="text">
+                <button type="submit">Delete User</button>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html> 
